@@ -1,0 +1,474 @@
+/* =========================================================
+   SITTA UT - Tampilan Login & Modal Interaktif
+   Desain: Tema Universitas Terbuka (Biru, Putih, Emas)
+   ========================================================= */
+
+/* RESET DAN DASAR */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body:not(.dashboard-page){
+  background-color: #f5f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* KOTAK LOGIN */
+.login-container {
+  background: #ffffff;
+  padding: 35px 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0, 51, 160, 0.15);
+  width: 380px;
+  text-align: center;
+  border: 2px solid #ffcc00;
+  transition: all 0.3s ease;
+}
+
+.login-container:hover {
+  box-shadow: 0 0 25px rgba(0, 51, 160, 0.25);
+}
+
+.login-container img {
+  margin-bottom: 10px;
+}
+
+.login-container h1 {
+  color: #0033a0;
+  font-weight: 700;
+  font-size: 34px;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.login-container h3 {
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* FORM INPUT */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  text-align: left;
+  font-size: 13px;
+  color: #0033a0;
+  font-weight: 500;
+}
+
+input {
+  padding: 10px 12px;
+  border: 1.5px solid #c9d3f5;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: #0033a0;
+  box-shadow: 0 0 5px rgba(0, 51, 160, 0.3);
+}
+
+/* TOMBOL MASUK */
+button {
+  background-color: #0033a0;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #002070;
+}
+
+/* LINK TAMBAHAN */
+.login-links {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.login-links a {
+  color: #0033a0;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 5px;
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+/* PESAN ERROR / INFO */
+#messageBox {
+  color: red;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* =========================================================
+   MODAL (POP-UP): Lupa Password & Daftar Akun
+   ========================================================= */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  width: 320px;
+  position: relative;
+  border: 2px solid #ffcc00;
+  box-shadow: 0 0 20px rgba(0, 51, 160, 0.15);
+  animation: muncul 0.25s ease;
+}
+
+/* Animasi muncul modal */
+@keyframes muncul {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* TOMBOL CLOSE (X) */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #333;
+  transition: 0.2s;
+}
+
+.close:hover {
+  color: red;
+}
+
+.modal-content h3 {
+  text-align: center;
+  color: #0033a0;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.modal-content p {
+  font-size: 13px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #444;
+}
+
+/* INPUT & TOMBOL DI MODAL */
+.modal-content input {
+  width: 100%;
+  padding: 9px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1.5px solid #c9d3f5;
+}
+
+.btn-primary {
+  background-color: #0033a0;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #002070;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+@media (max-width: 400px) {
+  .login-container {
+    width: 90%;
+    padding: 25px 20px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+}
+
+/* =========================================================
+   DASHBOARD PAGE
+   ========================================================= */
+
+.dashboard-page {
+  background-color: #f5f8ff;
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #0033a0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.nav-menu a:hover {
+  color: #ffcc00;
+}
+
+/* Dropdown menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  color: #0033a0;
+  border-radius: 8px;
+  min-width: 180px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  color: #0033a0;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #e9efff;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.logout-btn {
+  background-color: #ffcc00;
+  color: #0033a0;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #f0b800;
+}
+
+/* KONTEN DASHBOARD */
+.dashboard-container {
+  background: #ffffff;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 12px;
+  width: 80%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border: 2px solid #ffcc00;
+  text-align: center;
+}
+
+.dashboard-container h2 {
+  color: #0033a0;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.dashboard-container p {
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.quick-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #0033a0;
+  border: 2px solid #0033a0;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-secondary:hover {
+  background-color: #e0e7ff;
+}
+
+/* ====== PERBAIKAN NAVBAR DAN DASHBOARD ====== */
+
+/* Navbar agar memanjang penuh dan tetap di atas */
+.navbar {
+  position: relative;
+  width: 100%;
+  background-color: #0033a0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Supaya item menu tidak terlalu rapat */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Tombol keluar agar tidak terlalu menempel */
+.logout-btn {
+  margin-left: 20px;
+}
+
+/* Kontainer dashboard agar turun sedikit dari navbar */
+.dashboard-container {
+  background: #ffffff;
+  margin: 60px auto;
+  padding: 40px;
+  border-radius: 12px;
+  width: 75%;
+  max-width: 900px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border: 2px solid #ffcc00;
+  text-align: center;
+}
+
+/* Supaya tombol 'Pelajari' dan 'Aksi Cepat' sejajar rapi */
+.quick-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Tabel Stok */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f9ff;
+}
+
+tr:hover {
+  background-color: #e9efff;
+}
+
+button {
+  background-color: #0033a0;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #002b7f;
+}
+
+/* Modal Detail Buku */
+#detailModal .modal-content {
+  width: 400px;
+  max-width: 90%;
+  text-align: left;
+  padding: 25px;
+  border: 2px solid #ffcc00;
+  background: white;
+  border-radius: 12px;
+}
+
+#detailModal p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+#detailModal img {
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}

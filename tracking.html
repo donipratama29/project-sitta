@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracking Pengiriman - SITTA UT</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .tracking-card {
+      background: #ffffff;
+      border: 2px solid #ffcc00;
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 30px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    .tracking-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .tracking-header h3 {
+      color: #0033a0;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .status-label {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .status-dikirim { background: #007bff; }
+    .status-dalam { background: #ff9900; }
+    .status-selesai { background: #28a745; }
+
+    .timeline {
+      list-style: none;
+      margin-top: 20px;
+      padding-left: 20px;
+      border-left: 3px solid #0033a0;
+    }
+
+    .timeline li {
+      position: relative;
+      margin-bottom: 18px;
+      padding-left: 10px;
+    }
+
+    .timeline li::before {
+      content: "📦";
+      position: absolute;
+      left: -28px;
+      top: 0;
+      font-size: 18px;
+    }
+
+    .timeline li b {
+      color: #0033a0;
+    }
+
+    .tracking-footer {
+      text-align: right;
+      margin-top: 15px;
+      font-size: 13px;
+      color: #555;
+    }
+  </style>
+</head>
+<body class="dashboard-page">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="img/logo-ut.png" alt="UT" height="45">
+      <span>Dashboard SITTA</span>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="dashboard.html">Beranda</a></li>
+      <li><a href="stok.html">Informasi Bahan Ajar</a></li>
+      <li><a href="tracking.html" class="active">Tracking Pengiriman</a></li>
+      <li><a href="#">Laporan</a></li>
+      <li><a href="#">Histori Transaksi</a></li>
+    </ul>
+    <button id="logoutBtn" class="logout-btn">Keluar</button>
+  </nav>
+
+  <!-- KONTEN UTAMA -->
+  <div class="dashboard-container">
+    <h2>🚚 Tracking Bahan Ajar</h2>
+    <p>Masukkan <b>Nomor Delivery Order (DO)</b> untuk melacak status pengiriman bahan ajar Anda.</p>
+
+    <!-- FORM PENCARIAN -->
+    <div style="margin: 20px auto; width: 60%; text-align: center;">
+      <input 
+        type="text" 
+        id="doInput" 
+        placeholder="Masukkan Nomor DO (contoh: 2023001234)" 
+        style="padding: 10px; width: 70%; border: 1.5px solid #ccc; border-radius: 8px; font-size: 14px;">
+      <button id="btnLacak" class="btn-primary" style="width: 25%; margin-left: 5px;">Lacak</button>
+    </div>
+
+    <!-- HASIL TRACKING -->
+    <div id="hasilTracking"></div>
+  </div>
+
+  <!-- Pastikan script di-load SETELAH elemen HTML -->
+  <script src="js/data.js"></script>
+  <script src="js/tracking.js"></script>
+</body>
+</html>

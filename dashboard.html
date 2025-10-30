@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard SITTA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="img/logo-ut.png" alt="UT" height="45">
+      <span>Dashboard SITTA</span>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="stok.html">Informasi Bahan Ajar</a></li>
+      <li><a href="tracking.html">Tracking Pengiriman</a></li>
+      <li class="dropdown">
+        <a href="#">Laporan ▾</a>
+        <div class="dropdown-content">
+          <a href="#">Monitoring Bahan Ajar</a>
+          <a href="#">Rekap Bahan Ajar</a>
+        </div>
+      </li>
+      <li><a href="#">Histori Transaksi Bahan Ajar</a></li>
+    </ul>
+    <button id="logoutBtn" class="logout-btn">Keluar</button>
+  </nav>
+
+  <!-- KONTEN UTAMA -->
+  <div class="dashboard-container">
+    <h2 id="greeting">Selamat datang!</h2>
+    <p id="userInfo"></p>
+
+    <div class="quick-actions">
+      <button class="btn-primary">Pelajari</button>
+      <button class="btn-secondary">Aksi Cepat</button>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informasi Bahan Ajar - SITTA UT</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="img/logo-ut.png" alt="UT" height="45">
+      <span>Dashboard SITTA</span>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="dashboard.html">Beranda</a></li>
+      <li><a href="stok.html" class="active">Informasi Bahan Ajar</a></li>
+      <li><a href="tracking.html">Tracking Pengiriman</a></li>
+      <li><a href="#">Laporan</a></li>
+      <li><a href="#">Histori Transaksi</a></li>
+    </ul>
+    <button id="logoutBtn" class="logout-btn">Keluar</button>
+  </nav>
+
+  <!-- KONTEN UTAMA -->
+  <div class="dashboard-container">
+    <h2>📚 Daftar Bahan Ajar</h2>
+    <p>Berikut adalah daftar bahan ajar yang tersedia di sistem SITTA Universitas Terbuka.</p>
+
+    <!-- Pencarian -->
+    <input type="text" id="searchInput" placeholder="Cari judul bahan ajar..." 
+      style="padding: 10px; width: 60%; margin: 15px auto; display: block; border: 1.5px solid #ccc; border-radius: 8px;">
+
+    <!-- Tabel Data -->
+    <table id="stokTable" border="1" style="width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr style="background-color: #0033a0; color: white;">
+          <th>Kode</th>
+          <th>Judul Bahan Ajar</th>
+          <th>Kategori</th>
+          <th>Stok</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data dari stok.js akan dimasukkan ke sini -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MODAL DETAIL -->
+  <div id="detailModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeDetail" class="close">&times;</span>
+      <h3>📘 Detail Bahan Ajar</h3>
+      <div id="detailBody"></div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/data.js"></script>
+  <script src="js/stok.js"></script>
+</body>
+</html>
